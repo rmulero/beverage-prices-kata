@@ -49,4 +49,16 @@ public class BeveragesPricingTest {
         Beverage hotChocolateWithCream = BeverageCatalog.getBeverage(BeverageCatalogItem.HOT_CHOCOLATE_CREAM);
         assertThat(hotChocolateWithCream.price(),  is(closeTo(1.60, 0.001)));
     }
+
+    @Test
+    public void computes_beverage_with_cinnamon_supplement() {
+
+        for (BeverageCatalogItem catalogItem : BeverageCatalogItem.values()){
+            Beverage baseBeverage = BeverageCatalog.getBeverage(catalogItem);
+            Beverage beverageWithCinnamon = new Cinnamon(baseBeverage);
+
+            double priceDifference = beverageWithCinnamon.price() - baseBeverage.price();
+            assertThat(priceDifference, is(closeTo(0.05, 0.001)));
+        }
+    }
 }
