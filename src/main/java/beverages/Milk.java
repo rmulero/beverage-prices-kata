@@ -1,9 +1,13 @@
 package beverages;
 
-public class Milk implements Beverage {
+public class Milk extends Supplement {
+
+    public Milk(Beverage beverage) {
+        super(beverage);
+    }
 
     @Override
     public double price() {
-        return 0.10;
+        return beverage.price() + 0.10;
     }
 }
