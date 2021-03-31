@@ -6,6 +6,6 @@ public class HotChocolateWithCream extends HotChocolate {
 
     @Override
     public double price() {
-        return 1.45 + cream.price();
+        return super.price() + cream.price();
     }
 }
